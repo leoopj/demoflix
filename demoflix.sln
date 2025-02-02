@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostDatabase", "src\PostDat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetMovieDetail", "src\GetMovieDetail\GetMovieDetail.csproj", "{84670606-7891-4F4C-B7FE-99AA7396FC91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetAllMovies", "src\GetAllMovies\GetAllMovies.csproj", "{2E0E8E8A-0F4B-4B64-A171-B372E828EC9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{84670606-7891-4F4C-B7FE-99AA7396FC91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84670606-7891-4F4C-B7FE-99AA7396FC91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84670606-7891-4F4C-B7FE-99AA7396FC91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E0E8E8A-0F4B-4B64-A171-B372E828EC9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E0E8E8A-0F4B-4B64-A171-B372E828EC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E0E8E8A-0F4B-4B64-A171-B372E828EC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E0E8E8A-0F4B-4B64-A171-B372E828EC9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

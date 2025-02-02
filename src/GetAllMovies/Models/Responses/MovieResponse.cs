@@ -1,4 +1,4 @@
-﻿namespace GetMovieDetail.Models.Responses
+﻿namespace GetAllMovies.Models.Responses
 {
     public class MovieResponse
     {

@@ -1,40 +1,29 @@
-using GetMovieDetail.Models.Responses;
+using GetAllMovies.Models.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
-using System.Text;
 
-namespace GetMovieDetail
+namespace GetAllMovies
 {
-    public class GetMovieDetail
+    public class GetAllMovies
     {
-        private readonly ILogger<GetMovieDetail> _logger;
+        private readonly ILogger<GetAllMovies> _logger;
         private readonly CosmosClient _cosmosClient;
 
-        public GetMovieDetail(ILogger<GetMovieDetail> logger, CosmosClient cosmosClient)
+        public GetAllMovies(ILogger<GetAllMovies> logger, CosmosClient cosmosClient)
         {
             _logger = logger;
             _cosmosClient = cosmosClient;
         }
 
-        [Function("detail")]
+        [Function("details")]
         public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
         {
             var container = _cosmosClient.GetContainer("Movies", "Items");
-            var id = req.Query["id"];
-            var query = new StringBuilder("SELECT * FROM Movies WHERE m");
-            var queryDefinition = new QueryDefinition(query.ToString());
-
-            if (!string.IsNullOrEmpty(id))
-            {
-                query.Append(" WHERE m.id = @id");
-                queryDefinition = new QueryDefinition(query.ToString())
-                    .WithParameter("@id", id);
-            }
-
-            var result = container.GetItemQueryIterator<MovieResponse>(queryDefinition);
+            var query = new QueryDefinition("SELECT * FROM Movies WHERE m");
+            var result = container.GetItemQueryIterator<MovieResponse>(query);
             var results = new List<MovieResponse>();
             while (result.HasMoreResults)
             {
